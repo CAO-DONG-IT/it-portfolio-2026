@@ -12,11 +12,10 @@
 - Javaの動作確認：java -version / javac -version
 
 【WSL動作確認ログ】
-```bash
 jyuuroku@WIN-HV50B2AFSCS:~$ pwd
 /home/jyuuroku
 jyuuroku@WIN-HV50B2AFSCS:~$ ls
-# （空＝まだファイルなし）
+**（空＝まだファイルなし）**
 jyuuroku@WIN-HV50B2AFSCS:~$ uname -a
 Linux WIN-HV50B2AFSCS 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
 jyuuroku@WIN-HV50B2AFSCS:~$
@@ -50,4 +49,28 @@ javac 17.0.17
 - linux/troubleshooting-playbook.md
 - java/README.md
 - aws/README.md
+
+## 2026-01-06
+### 今日の目標
+
+
+### 今日やったこと
+- `touch/echo/cat` でファイル作成・書き込み（上書き/追記）・改行挙動（echo -n）を確認
+- `/etc/hosts` と `/etc/services` を `more` で閲覧し、ページ送り操作を確認
+- `cp/mv/rm`（ワイルドカード含む）を演習し、パス解釈と削除の注意点を整理
+
+
+
+### 詰まった点（現象／原因／解決）
+- `cp: cannot stat`：作業ディレクトリが原因でコピー元が存在しなかった → パス見直しで解決
+- バイナリを `cat` して画面が乱れた → `Ctrl+C` / `reset` で復旧
+- `rm` でディレクトリ削除不可 → `rm -r` が必要
+- ワイルドカードがマッチしない → 事前に `ls` で確認
+
+### 明日の予定（2026-01-07）
+
+### 今日のキーワード（3〜5個）
+
+
+### 証拠リンク（リポジトリ内パス）
 
