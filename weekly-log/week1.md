@@ -95,10 +95,13 @@ javac -version
 3) Network：OSI/TCPIP と IP/サブネットの要点を整理し、network/ 配下に学習メモ＋練習ログを残す
 
 ### 今日やったこと
-
+ - `/etc` を題材に `find/grep/| wc -l/> >>/tail/vim` を一連で実施し、ログ化まで完了
 
 
 ### 詰まった点（現象／原因／解決）
+- `which cd` が出ない：`cd` はシェル組み込み（builtin）→ `type cd` で確認
+- `find` で `Permission denied`：`/mnt` `/proc` `/sys` などの影響 → `-prune` で除外、または `2>/dev/null` で抑制
+- root に切替後 `cd` が `/root`：`su -` はログインシェル → ユーザー作業は `cd /home/jyuuroku`
 
   
 ### 明日の予定（2026-01-08）
@@ -108,3 +111,4 @@ javac -version
 
 
 ### 証拠リンク（リポジトリ内パス）
+- `linux/day2-etc-search.md`
