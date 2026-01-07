@@ -4,9 +4,9 @@
 ### 今日の目標
 1)GitHubリポジトリを作成し、テンプレート（README／学習ログ等）を整備して初回コミットする
 
-2)WSL（Ubuntu）を導入し、基本コマンド（pwd/ls/uname -a）で動作確認してログに残す
+2)WSL（Ubuntu）を導入し、基本コマンド（`pwd/ls/uname -a`）で動作確認してログに残す
 
-3)JDKを導入し、java/javacのバージョン確認まで行い、結果を学習ログに記録する
+3)JDKを導入し、`java/javac`のバージョン確認まで行い、結果を学習ログに記録する
 
 ### 今日やったこと
 - テンプレートを作成して保存（README／week1ログ／Linux/Java/AWSの骨子）
@@ -15,13 +15,13 @@
 
 
 【WSL動作確認ログ】
-```bash
+```
 pwd
 ls
 uname -a
 ```
 【Java動作確認ログ】
-```bash
+```
 java -version
 javac -version
 ```
@@ -91,32 +91,48 @@ javac -version
 ## 2026-01-07（network追加）
 ### 今日の目標
 1) Linux：find/which/grep/|/wc/</>/>>/tail を使い、/etc を題材に「検索→集計→ログ化」を1本の成果物にする
-2) Java：Console Todo v0.2（メニュー + 追加/一覧）を実装し、READMEに実行方法と操作例を残す  
-3) Network：OSI/TCPIP と IP/サブネットの要点を整理し、network/ 配下に学習メモ＋練習ログを残す
+2) Java：Console Todo v0.2（メニュー + 追加/一覧）を実装し、READMEに実行方法と操作例を残す
+3) Network：OSI/TCPIP と ARP の要点を整理し、疎通・DNS・経路・HTTP確認をログ化して証拠を残す
 
 ### 今日やったこと
-- Linux：/etc を題材に find/grep/| wc -l/> >>/tail/vim を一連で実施し、ログ化まで完了
-- Java：Console Todo v0.2 を実装（メニュー + 追加/一覧）し、動作確認まで完了  
-  ※ README（v0.2）は作成・追記予定
-- Network：未着手（Java完了後に実施予定）
+- Linux：/etc を題材に` find/grep/| wc -l/> >>/tail/vim` を一連で実施し、ログ化まで完了
+- Java：Console Todo v0.2 を実装（メニュー + 追加/一覧）し、動作確認まで完了
+- Network：OSI/TCPIP と ARP を整理し、疎通・DNS・経路・HTTP確認を実行してログ化まで完了
+  ```
+  - ping 1.1.1.1（疎通OK）
+  - nslookup example.com（DNS OK）
+  - tracert 1.1.1.1（最終到達OK）
+  - curl.exe -I https://example.com（HTTP 200 OK）
+  - PowerShell の curl 別名問題を把握し、curl.exe で回避
+  ```
 
 ### 詰まった点（現象／原因／解決）
 - `which cd` が出ない：`cd` はシェル組み込み（builtin）→ `type cd` で確認
 - `find` で `Permission denied`：`/mnt` `/proc` `/sys` などの影響 → `-prune` で除外、または `2>/dev/null` で抑制
 - root に切替後 `cd` が `/root`：`su -` はログインシェル → ユーザー作業は `cd /home/jyuuroku`
 
-  
 ### 明日の予定（2026-01-08）
+- ITパスポート：受験
+- Linux：/etc で「検索→集計→ログ化」を実施`（linux/day3-etc-search.md）`
+- Java：Console Todo 小改善1件（削除/完了/入力バリデーションのいずれか）を追加し、README追記
+- Network：サブネット練習3問を追加`（network/subnetting-practice.md）`＋手順メモ作成`（network/notes/subnet-basic.md）`
+- 次：サブネット練習を継続（合計10問まで）＋Todoの機能をもう1つ追加
 
-   
+
 ### 今日のキーワード（3〜5個）
 - prune
 - builtin
 - pipe（|）
 - ArrayList
+- ARP
 
 ### 証拠リンク（リポジトリ内パス）
-- linux/day2-etc-search.md
-- java/ConsoleTodo/v0.2/Main.java
+```
+- linux/day2-etc-search.md`
+- java/ConsoleTodo/v0.2/Main.java`
 - java/ConsoleTodo/v0.2/README.md
 - java/screenshots/ConsoleTodo_v0.2_run.jpg
+- network/notes/osi-tcpip.md
+- network/notes/arp.md
+- network/notes/commands-proof.md
+```
