@@ -87,3 +87,24 @@ javac -version
 - `linux/day1-cp-mv-rm-wildcard.md`
 - `java/ConsoleTodo/v0.1/Main.java`
 - `java/ConsoleTodo/v0.1/README.md`
+
+## 2026-01-07（network追加）
+### 今日の目標
+1) Linux：find/which/grep/|/wc/</>/>>/tail を使い、/etc を題材に「検索→集計→ログ化」を1本の成果物にする
+2) Java：Console Todo v0.2（メニュー + 追加/一覧）を実装し、READMEに実行方法と操作例を残す  
+3) Network：OSI/TCPIP と IP/サブネットの要点を整理し、network/ 配下に学習メモ＋練習ログを残す
+
+### 今日やったこと
+
+
+
+### 詰まった点（現象／原因／解決）
+
+  
+### 明日の予定（2026-01-08）
+
+   
+### 今日のキーワード（3〜5個）
+
+
+### 証拠リンク（リポジトリ内パス）
