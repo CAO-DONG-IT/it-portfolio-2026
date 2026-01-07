@@ -95,8 +95,10 @@ javac -version
 3) Network：OSI/TCPIP と IP/サブネットの要点を整理し、network/ 配下に学習メモ＋練習ログを残す
 
 ### 今日やったこと
- - `/etc` を題材に `find/grep/| wc -l/> >>/tail/vim` を一連で実施し、ログ化まで完了
-
+- Linux：/etc を題材に find/grep/| wc -l/> >>/tail/vim を一連で実施し、ログ化まで完了
+- Java：Console Todo v0.2 を実装（メニュー + 追加/一覧）し、動作確認まで完了  
+  ※ README（v0.2）は作成・追記予定
+- Network：未着手（Java完了後に実施予定）
 
 ### 詰まった点（現象／原因／解決）
 - `which cd` が出ない：`cd` はシェル組み込み（builtin）→ `type cd` で確認
@@ -108,7 +110,13 @@ javac -version
 
    
 ### 今日のキーワード（3〜5個）
-
+- prune
+- builtin
+- pipe（|）
+- ArrayList
 
 ### 証拠リンク（リポジトリ内パス）
-- `linux/day2-etc-search.md`
+- linux/day2-etc-search.md
+- java/ConsoleTodo/v0.2/Main.java
+- java/ConsoleTodo/v0.2/README.md
+- java/screenshots/ConsoleTodo_v0.2_run.jpg
