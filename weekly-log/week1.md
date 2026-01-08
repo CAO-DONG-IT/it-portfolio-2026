@@ -136,3 +136,58 @@ javac -version
 - network/notes/arp.md
 - network/notes/commands-proof.md
 ```
+
+## 2026-01-08（ITパスポート受験＋Network notes統合）
+### 今日の目標
+
+- ITパスポート受験を完了する（最優先）
+
+- Network 学習内容を notes 1本に統合し、GitHub に証拠を残す
+
+### 今日やったこと
+
+- ITパスポート：受験（最優先で実施）
+
+- Network：これまでの学習内容（用語、/n、ブロックサイズ、NW/BC/usable/hosts、切り分け観点）を1本に統合
+
+- 既存メモを参照しつつ、誤解しやすい点（GW≠マスク、NWの定義など）をまとめ直した
+
+- GitHub：日次ログ追記＋notes追加
+
+### 予定との差分（未達）
+
+- Linux：`linux/day3-etc-search.md` の実施・更新 → 未達
+
+- Java：`Console Todo`小改善（削除/完了/入力バリデーション）＋README追記 → 未達
+
+- Network：サブネット練習3問（`network/subnetting-practice.md`）＋手順メモ（`network/notes/subnet-basic.md`）→ 未達
+
+### 詰まった点（現象／原因／解決）
+
+- 学習が進まない：試験による疲労・時間制約 → 当日は「notes統合＋ログ更新」に絞って継続を優先
+
+### 明日の予定（2026-01-09）
+
+- Network：サブネット練習3問を追加（`network/subnetting-practice.md`）＋手順メモ追記（`network/notes/subnet-basic.md`）
+
+- Linux：権限（`chmod`）とコピー（cp/隠しファイル含む）の要点を notes に整理（`linux/troubleshooting-playbook.md` へ追記候補）
+
+- Java：`Console Todo v0.3`（改善1件：削除/完了/入力バリデーション）を実装し、READMEに操作例追記
+
+### 今日のキーワード（3〜5個）
+
+- CIDR（/n）
+
+- ブロックサイズ
+
+- NW/BC/usable
+
+- デフォルトゲートウェイ
+
+- notes統合
+
+### 証拠リンク（リポジトリ内パス）
+
+- `network/notes/network-basics.md`
+
+- `weekly-log/week1.md`（本日の追記）
