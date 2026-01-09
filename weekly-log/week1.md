@@ -194,60 +194,50 @@ javac -version
 
 ## 2026-01-09
 ### 今日の目標
-1) Linux：詰まりポイントを playbook に Case 3件 追記し、コマンド例を添える（linux/troubleshooting-playbook.md）
-
-2) Java：Console Todo v0.3（小改善1件） を実装し、README に操作例を追記（java/ConsoleTodo/v0.3/）
-
-3) Network：サブネット練習 3問 を追加し、手順メモを 10行以内で整理（network/subnetting-practice.md / network/notes/subnet-basic.md）
-
-4) GitHub：weekly-log/week1.md に Day4 追記＋ 日次コミット1回（Web提出OK）
-
+1) Linux：詰まりポイントを playbook に Case 追記し、コマンド例を添える（`linux/troubleshooting-playbook.md`）
+2) Java：Console Todo v0.3（小改善1件） を実装し、README に操作例を追記（`java/ConsoleTodo/v0.3/`）
+3) Network：サブネット練習 3問 を追加し、手順メモを 10行以内で整理（`network/subnetting-practice.md` / `network/notes/subnet-basic.md`）
+4) GitHub：`weekly-log/week1.md` に Day4 追記＋ 日次コミット1回
 
 ### 今日やったこと
 - Linux：
-  - ユーザー/グループ操作（useradd -m / usermod -aG / userdel -r / groupdel / groups / id / getent group）を実機で確認
-  - 権限表示の見方（リンク数など）を含め、詰まりポイントを playbook の Case として整理
+  - user/group 周り（`useradd/userdel/usermod/groupdel/getent/groups/id`）を動画＋演練で確認
+  - playbook 用の Case を整理し、追記フォーマットを「現象/原因/対処」に統一
 - Java：
-  - 基礎動画を視聴し、Scanner / 変数・字面量 / メソッド（引数あり・なし）/ switch を復習
-  - Console Todo v0.3：削除機能（番号指定）＋入力バリデーション（全角/英字/範囲外）を実装
-  - README更新、操作ログ作成、スクリーンショット追加
+  - `Console Todo v0.3` を実装（削除機能＋入力バリデーション：全角/英字/範囲外）
+  - 操作ログ＋スクリーンショットを追加し、README を更新
+  - Java 基礎メモを作成（`Scanner/new/リテラルと変数/引数ありなし/try-catch`）
 - Network：
-  - 本日は見送り（学習の連続性を優先し、Linux/Javaの成果物に集中）
-
+  - 本日は停止（未実施）
 
 ### 予定との差分（未達）
-- Network：サブネット練習3問＋手順メモ（10行以内）→ 本日は見送り
-- （必要なら明日以降にリスケ）
+- Network：サブネット練習 3問＋手順メモ → 未実施（本日停止）
+- Linux：当初予定の「Case 3件」に限定せず、追加で整理・統一まで実施（範囲が増えた）
 
 ### 詰まった点（現象／原因／解決）
-- `getent groups` が失敗：DB名は `group`（単数）→ `getent group | tail` で確認
-- `useradd` しても `/home/<user>` ができない：`-m` 未指定 → `useradd -m` で作成
-- `usermod -aG` の引数順が混乱：`usermod -aG <group> <user>`（順序固定）
-- 入力が「１」（全角）で不正扱い：半角数字 `0/1/2/3` のみ許可する仕様に統一
+- `getent groups` が失敗：DB名は `group`（単数）→ `getent group` を使用
+- `usermod -aG` の引数順を混同しやすい → 正：`usermod -aG <group> <user>` を notes 化
+- `ls -l` と `ls -al` の表示差で数値（リンク数）の理解が曖昧 → `.` `..` を含む表示で整理
 
 ### 明日の予定（2026-01-10）
-- Linux：playbook Case を最終反映（必要なら追記）＋今日の論点を notes 化（任意）
-- Java：Console Todo の小リファクタ（メッセージ/メソッド分割など軽微でOK）または 次バージョンの方針1行追記
-- Network：体力次第で再開（サブネット練習を1〜3問だけでも実施して連続性を戻す）
+- Linux：次章へ進む（権限・ユーザー管理の続き → systemctl/ソフトリンク/時刻・時区/IP・ホスト名のいずれかを1ブロック視聴＋実行ログを1本作成）
+- Java：Console Todo v0.4 着手（ファイル保存/読み込みの設計→最小実装まで。まずは「起動時に読み込み→終了時に保存」を目標）
+- Network：本日は優先度低（時間が余ればサブネット練習を1問だけ）
 
 
 ### 今日のキーワード（3〜5個）
-- useradd -m
-- usermod -aG
+- useradd / userdel / usermod
 - getent group
-- リンク数（ディレクトリ）
-- 全角／半角
-
+- groups / id
+- Scanner
+- try-catch
 
 ### 証拠リンク（リポジトリ内パス）
 ```
-linux/troubleshooting-playbook.md
-
-java/ConsoleTodo/v0.3/Main.java
-
-java/ConsoleTodo/v0.3/README.md
-
-java/screenshots/ConsoleTodo_v0.3_run.jpg
-
-weekly-log/week1.md
+- linux/troubleshooting-playbook.md
+- java/notes/java-basics.md
+- java/ConsoleTodo/v0.3/Main.java
+- java/ConsoleTodo/v0.3/README.md
+- java/screenshots/ConsoleTodo_v0.3_run.jpg
+- weekly-log/week1.md
 ```
