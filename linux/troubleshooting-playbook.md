@@ -19,114 +19,96 @@
 
 ## 典型ケース（後で追記）
 
-### Case1：`cp -r` でコピー先の構成が想定と違う
+### Case1：`cp -r` でコピー結果が想定と違う（フォルダごと/中身だけ）
 
- **現象**
-- `cp -r Day1 ~/Sandbox1` を実行した結果、`~/Sandbox1/Day1/` が作られず、`~/Sandbox1` 直下に `Day1` 配下のファイルが展開されたように見える
-
- **原因**
-- コピー先 `~/Sandbox1` が **存在しない** 状態だったため、`cp` が `~/Sandbox1` を「新しいディレクトリ名」として作成し、その中身を `Day1` の内容にした
-
-**解決**（推奨）
-- 親ディレクトリを先に作ってからコピーする運用に統一する
-
-mkdir -p ~/Sandbox1 && cp -r Day1 ~/Sandbox1/
-
+- 現象：
+  `cp -r Day1 ~/Sandbox1` を実行した結果、想定と異なる階層（`~/Sandbox1/Day1/` にならない等）になる
+- 原因：
+  コピー先ディレクトリの **存在有無** と、`cp` の **末尾スラッシュ有無** により挙動が変わる
+- 対処：
+  - 「中身だけ」をコピー：`cp -r Day1/. Day3/`
+  - 「隠しファイルなし」で中身だけ：`cp -r Day1/* Day3/`
+  - 事前に親を作る：`mkdir -p ~/Sandbox1 && cp -r Day1 ~/Sandbox1/`
+  - 事後確認：`ls -al ~/Sandbox1` / `tree -a ~/Sandbox1`（treeがあれば）
 
 
-### Case2：cat 実行後に入力待ちになりコマンドが打てない
+### Case2：`cat` 実行後に入力待ちになりプロンプトが戻らない
 
-**現象**
-
-`cat` の後、入力した文字がそのまま表示され、プロンプトが戻らない
-
-**原因**
-
-`cat` が標準入力を待っている（ファイル指定なし、または `cat > file / cat >> file` 等）
-
-**解決**
-
-Ctrl + D：EOFで正常終了
-
-Ctrl + C：中断
-
-**再発防止**
-
-内容確認は `cat file `/ 長い場合は `more`
+- 現象：
+  `cat` の後、入力した文字がそのまま表示され、プロンプトが戻らない
+- 原因：
+  `cat` が標準入力を待っている（ファイル指定なし、または `cat > file` / `cat >> file` 等）
+- 対処：
+  - 正常終了：`Ctrl + D`（EOF）
+  - 中断：`Ctrl + C`
+  - 内容確認は `cat file` / 長い場合は `more file` 等に切替
 
 
-### Case3：実行ファイル（バイナリ）を cat/more して画面が乱れる
+### Case3：実行ファイル（バイナリ）を `cat/more` して画面が乱れる
 
-**現象**
+- 現象：
+  画面が乱れる、文字化け、警告音が鳴る
+- 原因：
+  バイナリには制御文字が含まれ、端末表示が崩れる
+- 対処：
+  - 出力停止：`Ctrl + C`
+  - 画面復旧：`reset`（必要なら `stty sane` → `reset`）
+  - 再発防止：先に種類確認 `file <name>`、文字列だけ `strings <name> | head`
 
-画面が乱れる、警告音が鳴る
 
-**原因**
+### Case4：`rm` でディレクトリを消せない
 
-バイナリには制御文字が含まれ、端末表示が崩れる
+- 現象：
+  `rm Sandbox1` → `Is a directory`
+- 原因：
+  `rm` はディレクトリ削除に `-r` が必要
+- 対処：
+  - ディレクトリ削除：`rm -r Sandbox1`
+  - 確認してから削除：`pwd` と `ls -l` で対象パスを確認して実行
 
-**解決**
-
-出力を止める
-`Ctrl + C`
-
-表示を復旧
-`reset`
-
-必要なら
-`stty sane`
-`reset`
-
-**再発防止**
-
-先に種類確認：`file <name>`
-
-文字列だけ抽出：`strings <name> | head`
-
-### Case4：rm でディレクトリを消せない
-
-**現象**
-
-`rm Sandbox1 → Is a directory`
-
-**原因**
-
-`rm` はディレクトリ削除に `-r` が必要
-
-**解決**
-`rm -r Sandbox1`
-
-**再発防止**
-
-削除前に `pwd` と `ls -l` で対象パスを確認する
 
 ### Case5：ワイルドカードがマッチせず削除できない
 
-**現象**
+- 現象：
+  `rm *test` → `No such file or directory`
+- 原因：
+  ワイルドカード（`*`）が該当ファイルにマッチしていない
+- 対処：
+  - まずマッチ確認：`ls *test`
+  - 実際に削除（例）：`rm *test.txt`
+  - 再発防止：先に `ls <pattern>` → 次に `rm <pattern>` の順で実行
 
-`rm *test` → `No such file or directory`
 
-**原因**
+### Case6：`useradd` したのに `/home` にユーザー用ディレクトリが作られない
 
-ワイルドカード（*）が該当ファイルにマッチしていない
+- 現象：
+  `useradd` 実行後、`/home/<user>` が存在しない
+- 原因：
+  `useradd` はデフォルトでホームディレクトリを作成しない（`-m` が必要）
+- 対処：
+  - 新規作成：`sudo useradd -m -g <group> <user>`
+  - シェル指定：`sudo useradd -m -s /bin/bash <user>`
+  - 確認：`getent passwd <user>`（homeのパス）/ `id <user>`（所属確認）
 
-**解決**
 
-先にマッチ確認
-`ls *test`
+### Case7：`getent groups` が失敗する（Unknown database）
 
-実際に削除（例）
-`rm *test.txt`
+- 現象：
+  `getent groups` → `Unknown database: groups`
+- 原因：
+  DB名は `group`（単数）
+- 対処：
+  - 正：`getent group`
+  - 末尾だけ：`getent group | tail`
+  - 特定ユーザー確認：`groups <user>` / `id <user>`
 
-**再発防止**
 
-先に `ls <pattern>` でマッチ確認してから `rm <pattern>` を実行する
+### Case8：`usermod -aG` の引数順を混同する
 
-### Case6：`useradd` したのに `/home` にユーザーのディレクトリが作られない
-- 現象：`useradd` 実行後、`/home/<user>` が存在しない
-- 原因：`useradd` はデフォルトでホームディレクトリを作成しない（`-m` が必要）
-- 確認：
-  - `getent passwd <user>`（home のパス確認）
-  - `id <user>`（ユーザー/グループ確認）
-- 解決：
-  - 新規作成時：`sudo useradd -m -g <group> <user>`
+- 現象：
+  `usermod -aG` を実行したつもりでも、グループが反映されない／意図しない対象に付与してしまう
+- 原因：
+  引数順を混同（group と user を逆にする）
+- 対処：
+  - 正：`sudo usermod -aG <group> <user>`
+  - 反映確認：`groups <user>` / `id <user>`
