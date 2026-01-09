@@ -121,3 +121,12 @@ Ctrl + C：中断
 **再発防止**
 
 先に `ls <pattern>` でマッチ確認してから `rm <pattern>` を実行する
+
+### Case6：`useradd` したのに `/home` にユーザーのディレクトリが作られない
+- 現象：`useradd` 実行後、`/home/<user>` が存在しない
+- 原因：`useradd` はデフォルトでホームディレクトリを作成しない（`-m` が必要）
+- 確認：
+  - `getent passwd <user>`（home のパス確認）
+  - `id <user>`（ユーザー/グループ確認）
+- 解決：
+  - 新規作成時：`sudo useradd -m -g <group> <user>`
