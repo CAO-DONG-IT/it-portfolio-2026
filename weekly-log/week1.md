@@ -140,9 +140,9 @@ javac -version
 ## 2026-01-08（ITパスポート受験＋Network notes統合）
 ### 今日の目標
 
-- ITパスポート受験を完了する（最優先）
+1) ITパスポート受験を完了する（最優先）
 
-- Network 学習内容を notes 1本に統合し、GitHub に証拠を残す
+2) Network 学習内容を notes 1本に統合し、GitHub に証拠を残す
 
 ### 今日やったこと
 
@@ -191,3 +191,38 @@ javac -version
 - `network/notes/network-basics.md`
 
 - `weekly-log/week1.md`（本日の追記）
+
+## 2026-01-09
+### 今日の目標
+1) Linux：詰まりポイントを playbook に Case 3件 追記し、コマンド例を添える（linux/troubleshooting-playbook.md）
+
+2) Java：Console Todo v0.3（小改善1件） を実装し、README に操作例を追記（java/ConsoleTodo/v0.3/）
+
+3) Network：サブネット練習 3問 を追加し、手順メモを 10行以内で整理（network/subnetting-practice.md / network/notes/subnet-basic.md）
+
+4) GitHub：weekly-log/week1.md に Day4 追記＋ 日次コミット1回（Web提出OK）
+
+
+### 今日やったこと
+
+
+
+### 予定との差分（未達）
+
+
+
+### 詰まった点（現象／原因／解決）
+
+
+
+### 明日の予定（2026-01-10）
+
+
+
+### 今日のキーワード（3〜5個）
+
+
+
+### 証拠リンク（リポジトリ内パス）
+
+
