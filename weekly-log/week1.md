@@ -204,25 +204,50 @@ javac -version
 
 
 ### 今日やったこと
-
+- Linux：
+  - ユーザー/グループ操作（useradd -m / usermod -aG / userdel -r / groupdel / groups / id / getent group）を実機で確認
+  - 権限表示の見方（リンク数など）を含め、詰まりポイントを playbook の Case として整理
+- Java：
+  - 基礎動画を視聴し、Scanner / 変数・字面量 / メソッド（引数あり・なし）/ switch を復習
+  - Console Todo v0.3：削除機能（番号指定）＋入力バリデーション（全角/英字/範囲外）を実装
+  - README更新、操作ログ作成、スクリーンショット追加
+- Network：
+  - 本日は見送り（学習の連続性を優先し、Linux/Javaの成果物に集中）
 
 
 ### 予定との差分（未達）
-
-
+- Network：サブネット練習3問＋手順メモ（10行以内）→ 本日は見送り
+- （必要なら明日以降にリスケ）
 
 ### 詰まった点（現象／原因／解決）
-
-
+- `getent groups` が失敗：DB名は `group`（単数）→ `getent group | tail` で確認
+- `useradd` しても `/home/<user>` ができない：`-m` 未指定 → `useradd -m` で作成
+- `usermod -aG` の引数順が混乱：`usermod -aG <group> <user>`（順序固定）
+- 入力が「１」（全角）で不正扱い：半角数字 `0/1/2/3` のみ許可する仕様に統一
 
 ### 明日の予定（2026-01-10）
-
+- Linux：playbook Case を最終反映（必要なら追記）＋今日の論点を notes 化（任意）
+- Java：Console Todo の小リファクタ（メッセージ/メソッド分割など軽微でOK）または 次バージョンの方針1行追記
+- Network：体力次第で再開（サブネット練習を1〜3問だけでも実施して連続性を戻す）
 
 
 ### 今日のキーワード（3〜5個）
-
+- useradd -m
+- usermod -aG
+- getent group
+- リンク数（ディレクトリ）
+- 全角／半角
 
 
 ### 証拠リンク（リポジトリ内パス）
+```
+linux/troubleshooting-playbook.md
 
+java/ConsoleTodo/v0.3/Main.java
 
+java/ConsoleTodo/v0.3/README.md
+
+java/screenshots/ConsoleTodo_v0.3_run.jpg
+
+weekly-log/week1.md
+```
