@@ -1,6 +1,6 @@
 # Week1
 
-## 2026-01-05 22:13（JST）
+## 2026-01-05 （Day1）
 ### 今日の目標
 1)GitHubリポジトリを作成し、テンプレート（README／学習ログ等）を整備して初回コミットする
 
@@ -48,7 +48,7 @@ javac -version
 - `java/README.md`
 - `aws/README.md`
 
-## 2026-01-06
+## 2026-01-06(Day2)
 ### 今日の目標
 1) Linux：`touch/echo/cat/more` を使って「作成→書き込み→確認→閲覧」を一通り実践し、学習ログに残す  
 2) Linux：`cp/mv/rm`（ワイルドカード含む）を演習し、パス解釈と削除の注意点を整理してPlaybookに反映する  
@@ -88,7 +88,7 @@ javac -version
 - `java/ConsoleTodo/v0.1/Main.java`
 - `java/ConsoleTodo/v0.1/README.md`
 
-## 2026-01-07（network追加）
+## 2026-01-07（Day3 network追加）
 ### 今日の目標
 1) Linux：find/which/grep/|/wc/</>/>>/tail を使い、/etc を題材に「検索→集計→ログ化」を1本の成果物にする
 2) Java：Console Todo v0.2（メニュー + 追加/一覧）を実装し、READMEに実行方法と操作例を残す
@@ -137,7 +137,7 @@ javac -version
 - network/notes/commands-proof.md
 ```
 
-## 2026-01-08（ITパスポート受験＋Network notes統合）
+## 2026-01-08（Day4 ITパスポート受験＋Network notes統合）
 ### 今日の目標
 
 1) ITパスポート受験を完了する（最優先）
@@ -192,7 +192,7 @@ javac -version
 
 - `weekly-log/week1.md`（本日の追記）
 
-## 2026-01-09
+## 2026-01-09（Day5）
 ### 今日の目標
 1) Linux：詰まりポイントを playbook に Case 追記し、コマンド例を添える（`linux/troubleshooting-playbook.md`）
 2) Java：Console Todo v0.3（小改善1件） を実装し、README に操作例を追記（`java/ConsoleTodo/v0.3/`）
@@ -241,3 +241,55 @@ javac -version
 - java/screenshots/ConsoleTodo_v0.3_run.jpg
 - weekly-log/week1.md
 ```
+
+## 2026-01-10（Day6）
+
+### 今日の目標
+- CCNA Day2 / Day3 を視聴して理解を固める（配線・TCP/IPモデル）
+- Day2 の配線トポロジ実験を実施し、証跡（スクリーンショット）を残す
+- notes と証拠導線（画像・README）を整備する
+
+### 今日やったこと
+- CCNA Day2（Interfaces and Cables）を視聴完了
+- CCNA Day3（TCP/IP Model Actually Works）を視聴完了
+- Day2：Packet Tracer の配線トポロジ実験を実施（Auto MDI-X 無効前提の結線ルールを意識）
+- ノートを作成（Day3中心：TCP/IP各層、エンドツーエンド／ホップバイホップ、PDU、Same-layer/Adjacent-layer）
+- 画像と証跡の保管を完了
+  - 動画スクリーンショット：`network/notes/images/` に保存
+  - 実験トポロジ（証跡）：`network/screenshots/` に保存
+- Day3ノートに画像リンクを追記し、閲覧時に追える状態にした
+- `network/README.md` を更新し、主教材（Jeremy's IT Lab）と証拠導線（notes/images/screenshots）を明記した
+
+### 予定との差分（未達）
+- Linux：未実施（次章へ進む＋実行ログ1本作成は未達）
+- Java：未実施（Console Todo v0.4 着手は未達）
+
+### 詰まった点（現象／原因／解決）
+- 現象：Same-layer / Adjacent-layer の説明が混ざり、図を見たときに言語化が止まった
+- 原因：「論理的に同一層で会話している」ことと「実装上の上下層受け渡し」を同じ意味で捉えていた
+- 解決：Same-layer＝論理（対向の同じ層と会話している“ように見える”）、Adjacent-layer＝同一装置内の上下層連携、と分けて整理した
+
+### 明日の予定
+- 学習は最小限で実施
+  - Linux：未達分を1ブロックだけ進める（視聴＋実行ログ1本）
+  - Network：CCNA Day4 を視聴（notes は要点のみ）
+  - Java：原則は進めない（余力がある場合のみ検討）
+
+### 今日のキーワード（3〜5個）
+- TCP/IPモデル
+- カプセル化／デカプセル化
+- PDU（Segment/Packet/Frame/Bits）
+- Same-layer / Adjacent-layer
+- Hop-by-hop
+
+### 証拠リンク（リポジトリ内パス）
+
+- ノート（Day3）：`network/notes/ccna-day3-tcpip-model.md`
+- ノート画像：
+  - `network/notes/images/day3_tcpip-model_details.jpg`
+  - `network/notes/images/day3_tcpip-model_concepts.jpg`
+  - `network/notes/images/day3_encapsulation.jpg`
+  - `network/notes/images/day3_decapsulation.jpg`
+- 実験証跡（Day2配線）：`network/screenshots/day2_lab_connecting-devices_topology.jpg`
+- README（教材リンク＋証拠導線）：`network/README.md`
+
