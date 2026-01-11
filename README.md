@@ -12,6 +12,9 @@
 
 ## 成果物
 - Linux：トラブルシューティング手順（playbook）、コマンド演習ログ
+   - Linux（Day7 / 2026-01-11 JST）：systemctlでSSHサービスのstop/startとjournal確認を実施
+  - 実行ログ：`linux/day7/linux-systemctl-ssh-log.md`
+  - 証跡：`linux/screenshots/day7-ssh-stop.jpg` / `linux/screenshots/day7-ssh-start.jpg` / `linux/screenshots/day7-ssh-journal.jpg`
 - Java：コンソールアプリ（READMEに実行手順と操作例を記載）
 - Network：学習メモ（notes）、疎通確認ログ、サブネット演習
 - AWS：EC2構築手順、セキュリティ／コストチェック（第2週から）
