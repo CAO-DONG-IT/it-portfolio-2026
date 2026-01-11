@@ -293,3 +293,43 @@ javac -version
 - 実験証跡（Day2配線）：`network/screenshots/day2_lab_connecting-devices_topology.jpg`
 - README（教材リンク＋証拠導線）：`network/README.md`
 
+## 2026-01-11（Day7）
+### 今日の目標
+- Linux：systemctlによるサービス管理を行い、実行ログ1本＋証跡（スクリーンショット）を残す
+- Linux：ルートREADME（リポジトリ直下のREADME）に成果リンク（証拠導線）を追加する
+- ネットワーク：余力があればCCNA Day4に着手（視聴＋要点メモ）
+
+### 今日やったこと
+- Linux（WSL）：`systemd`が有効であることを確認（PID1=systemd、is-system-running=running）
+- SSHサービス（`ssh.service`）を対象に、systemctlで状態確認および停止/起動の検証を実施
+- 停止が失敗（`sudo`なし）→原因切り分け（権限不足／ユニット名の違い）→修正（`sudo + ssh.service`）で再実行
+- journalctlでサービスログを確認し、証跡としてスクリーンショットを保存
+- `linux/day7/linux-systemctl-ssh-log.md` に「失敗原因→修正→検証」の順で整理して記録
+- ルートREADMEにDay7（`Linux：systemctl/SSH`）の成果リンクを追記
+
+### 予定との差分（未達）
+- ネットワーク：本日は余力が不足し、CCNA Day4は未着手（面接対応に想定以上の時間を要したため）
+
+### 詰まった点（現象・原因・解決）
+- 現象：`systemctl stop sshd` が停止できず「Interactive authentication required」と表示された
+- 原因：sudoなしで実行したため権限不足。加えてUbuntu系ではユニット名が `sshd.service` ではなく `ssh.service`
+- 解決：`sudo systemctl stop ssh`（=ssh.service）に修正し、停止/起動/ログ確認まで実施した
+
+### 明日の予定
+- ネットワーク：CCNA Day4（視聴＋要点メモ、可能ならLab証跡1点）
+- Linux：`systemctl`の復習（`enable/disable、journalctl`の確認）を最小回収
+- （余力があれば）Javaを小改修1コミット
+
+### 今日のキーワード（3〜5個）
+- systemd
+- systemctl
+- ssh.service
+- journalctl
+- WSL
+
+### 証拠リンク（リポジトリ内パス）
+- 実行ログ：`linux/day7/linux-systemctl-ssh-log.md`
+- 証跡（stop）：`linux/screenshots/day7-ssh-stop.jpg`
+- 証跡（start）：`linux/screenshots/day7-ssh-start.jpg`
+- 証跡（journal）：`linux/screenshots/day7-ssh-journal.jpg`
+- README導線：`README.md`
