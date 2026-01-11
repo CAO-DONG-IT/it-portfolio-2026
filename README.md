@@ -1,22 +1,19 @@
 # it-portfolio-2026
-# IT学習作品集（2026年）
+IT学習ポートフォリオ（2026年）
 
 ## 目標
-未経験からIT職（サポート／ヘルプデスク／テスター／運用保守／初級）へ。
+未経験からITエントリー職（ITサポート／ヘルプデスク／テスター／運用保守／初級インフラ）への就職を目指す。
 
 ## 学習範囲
 - Linux基礎（コマンド／権限／ログ／基本ネットワーク）
 - Java基礎（小さなコンソールアプリを継続改善）
-- Network基礎（OSI/TCPIP／IP・サブネット／疎通確認／基本トラブルシュート）
-- AWS基礎（※第2週から：EC2での簡易構築）
+- ネットワーク基礎（OSI/TCP/IP／IP・サブネット／疎通確認／基本トラブルシュート）
+- AWS基礎（第2週から：EC2での簡易構築）
 
 ## 成果物
 - Linux：トラブルシューティング手順（playbook）、コマンド演習ログ
-   - Linux（Day7 / 2026-01-11 JST）：systemctlでSSHサービスのstop/startとjournal確認を実施
-  - 実行ログ：`linux/day7/linux-systemctl-ssh-log.md`
-  - 証跡：`linux/screenshots/day7-ssh-stop.jpg` / `linux/screenshots/day7-ssh-start.jpg` / `linux/screenshots/day7-ssh-journal.jpg`
 - Java：コンソールアプリ（READMEに実行手順と操作例を記載）
-- Network：学習メモ（notes）、疎通確認ログ、サブネット演習
+- ネットワーク：学習メモ（notes）、疎通確認ログ、サブネット演習
 - AWS：EC2構築手順、セキュリティ／コストチェック（第2週から）
 
 ## 学習記録
@@ -25,7 +22,7 @@
 ## ディレクトリ構成（概要）
 - `linux/`：Linuxの学習メモ／演習ログ／playbook
 - `java/`：Javaアプリの実装とREADME、実行例
-- `network/`：Network学習メモ（notes）、疎通ログ、サブネット演習
+- `network/`：ネットワーク学習メモ（notes）、疎通ログ、サブネット演習
 - `aws/`：AWS（EC2）構築手順（第2週以降）
 - `weekly-log/`：週次ファイルに日次追記
 
