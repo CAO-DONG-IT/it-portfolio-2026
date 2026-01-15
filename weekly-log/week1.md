@@ -1,6 +1,6 @@
 # Week1
 
-## 2026-01-05 （Day1）
+## 2026-01-05（Day1）
 ### 今日の目標
 1)GitHubリポジトリを作成し、テンプレート（README／学習ログ等）を整備して初回コミットする
 
@@ -13,31 +13,33 @@
 - Ubuntu（WSL）で動作確認：`pwd / ls / uname -a`
 - Javaの動作確認：`java -version` / `javac -version`
 
-
 【WSL動作確認ログ】
-```
+```bash
 pwd
 ls
 uname -a
 ```
 【Java動作確認ログ】
-```
+```bash
 java -version
 javac -version
 ```
+
+### 予定との差分（未達）
+なし
 
 ### 詰まった点（現象／原因／解決）
 なし
 
 ### 明日の予定（2026-01-06）
-1) Linux基本コマンド（`ls/cd/mkdir/touch/cp/mv/rm`）を実行して、演習ログを1本作成する
-2) Java v0.1：Helloまたは最小コンソール入出力が動く状態を作り、READMEに実行手順を追記する
+1) Linux基本コマンド（`ls/cd/mkdir/touch/cp/mv/rm`）を実行して、演習ログを1本作成する  
+2) Java v0.1：Helloまたは最小コンソール入出力が動く状態を作り、READMEに実行手順を追記する  
 3) 学習ログ（`week1.md`）を更新してコミットする（最低1回）
 
 ### 今日のキーワード（3〜5個）
 - WSL
 - Ubuntu
-- uname  
+- uname
 - JDK
 - javac
 
@@ -48,7 +50,9 @@ javac -version
 - `java/README.md`
 - `aws/README.md`
 
-## 2026-01-06(Day2)
+---
+
+## 2026-01-06（Day2）
 ### 今日の目標
 1) Linux：`touch/echo/cat/more` を使って「作成→書き込み→確認→閲覧」を一通り実践し、学習ログに残す  
 2) Linux：`cp/mv/rm`（ワイルドカード含む）を演習し、パス解釈と削除の注意点を整理してPlaybookに反映する  
@@ -60,19 +64,21 @@ javac -version
 - `cp/mv/rm`（ワイルドカード含む）を演習し、パス解釈と削除の注意点を整理
 - Java：Console Todo v0.1 を作成（標準入力→trim→空判定→出力）し、WSL上でコンパイル/実行確認を実施
 
+### 予定との差分（未達）
+なし
 
 ### 詰まった点（現象／原因／解決）
 - `cp: cannot stat`：作業ディレクトリが原因でコピー元が存在しなかった → パス見直しで解決
 - バイナリを `cat` して画面が乱れた → `Ctrl+C` / `reset` で復旧
 - `rm` でディレクトリ削除不可 → `rm -r` が必要
 - ワイルドカードがマッチしない → 事前に `ls` で確認
-- Java：`illegal character: '\u3000'` → 全角スペース（U+3000）が混入していた → 半角スペースに置換して解決
-  
+- Java：`illegal character: '\u3000'` → 全角スペース（U+3000）が混入 → 半角スペースに置換して解決
+
 ### 明日の予定（2026-01-07）
 1) Linux：`grep` とパイプ（`|`）の基礎を動画で確認し、/etc のファイルを対象に検索演習（例：services から `ssh` を探す）  
 2) Java：Console Todo v0.2（メニュー + 追加/一覧）に着手（while/switch + ArrayList を使う）  
 3) 証拠：`weekly-log/week1.md` 更新＋Java v0.2 のコミット（最低1回）
-   
+
 ### 今日のキーワード（3〜5個）
 - `echo（> / >> / -n）`
 - `more`
@@ -88,23 +94,26 @@ javac -version
 - `java/ConsoleTodo/v0.1/Main.java`
 - `java/ConsoleTodo/v0.1/README.md`
 
-## 2026-01-07（Day3 network追加）
+---
+
+## 2026-01-07（Day3：Network追加）
 ### 今日の目標
-1) Linux：find/which/grep/|/wc/</>/>>/tail を使い、/etc を題材に「検索→集計→ログ化」を1本の成果物にする
-2) Java：Console Todo v0.2（メニュー + 追加/一覧）を実装し、READMEに実行方法と操作例を残す
+1) Linux：find/which/grep/|/wc/</>/>>/tail を使い、/etc を題材に「検索→集計→ログ化」を1本の成果物にする  
+2) Java：Console Todo v0.2（メニュー + 追加/一覧）を実装し、READMEに実行方法と操作例を残す  
 3) Network：OSI/TCPIP と ARP の要点を整理し、疎通・DNS・経路・HTTP確認をログ化して証拠を残す
 
 ### 今日やったこと
-- Linux：/etc を題材に` find/grep/| wc -l/> >>/tail/vim` を一連で実施し、ログ化まで完了
+- Linux：/etc を題材に `find/grep/| wc -l/> >>/tail/vim` を一連で実施し、ログ化まで完了
 - Java：Console Todo v0.2 を実装（メニュー + 追加/一覧）し、動作確認まで完了
 - Network：OSI/TCPIP と ARP を整理し、疎通・DNS・経路・HTTP確認を実行してログ化まで完了
-  ```
-  - ping 1.1.1.1（疎通OK）
-  - nslookup example.com（DNS OK）
-  - tracert 1.1.1.1（最終到達OK）
-  - curl.exe -I https://example.com（HTTP 200 OK）
-  - PowerShell の curl 別名問題を把握し、curl.exe で回避
-  ```
+  - `ping 1.1.1.1`（疎通OK）
+  - `nslookup example.com`（DNS OK）
+  - `tracert 1.1.1.1`（最終到達OK）
+  - `curl.exe -I https://example.com`（HTTP 200 OK）
+  - PowerShell の `curl` 別名問題を把握し、`curl.exe` で回避
+
+### 予定との差分（未達）
+なし
 
 ### 詰まった点（現象／原因／解決）
 - `which cd` が出ない：`cd` はシェル組み込み（builtin）→ `type cd` で確認
@@ -113,11 +122,10 @@ javac -version
 
 ### 明日の予定（2026-01-08）
 - ITパスポート：受験
-- Linux：/etc で「検索→集計→ログ化」を実施`（linux/day3-etc-search.md）`
+- Linux：/etc で「検索→集計→ログ化」を実施（`linux/day3-etc-search.md`）
 - Java：Console Todo 小改善1件（削除/完了/入力バリデーションのいずれか）を追加し、README追記
-- Network：サブネット練習3問を追加`（network/subnetting-practice.md）`＋手順メモ作成`（network/notes/subnet-basic.md）`
+- Network：サブネット練習3問を追加（`network/subnetting-practice.md`）＋手順メモ作成（`network/notes/subnet-basic.md`）
 - 次：サブネット練習を継続（合計10問まで）＋Todoの機能をもう1つ追加
-
 
 ### 今日のキーワード（3〜5個）
 - prune
@@ -127,70 +135,52 @@ javac -version
 - ARP
 
 ### 証拠リンク（リポジトリ内パス）
-```
-- linux/day2-etc-search.md`
-- java/ConsoleTodo/v0.2/Main.java`
-- java/ConsoleTodo/v0.2/README.md
-- java/screenshots/ConsoleTodo_v0.2_run.jpg
-- network/notes/osi-tcpip.md
-- network/notes/arp.md
-- network/notes/commands-proof.md
-```
+- `linux/day2-etc-search.md`
+- `java/ConsoleTodo/v0.2/Main.java`
+- `java/ConsoleTodo/v0.2/README.md`
+- `java/screenshots/ConsoleTodo_v0.2_run.jpg`
+- `network/notes/osi-tcpip.md`
+- `network/notes/arp.md`
+- `network/notes/commands-proof.md`
 
-## 2026-01-08（Day4 ITパスポート受験＋Network notes統合）
+---
+
+## 2026-01-08（Day4：ITパスポート受験＋Network notes統合）
 ### 今日の目標
-
-1) ITパスポート受験を完了する（最優先）
-
+1) ITパスポート受験を完了する（最優先）  
 2) Network 学習内容を notes 1本に統合し、GitHub に証拠を残す
 
 ### 今日やったこと
-
 - ITパスポート：受験（最優先で実施）
-
 - Network：これまでの学習内容（用語、/n、ブロックサイズ、NW/BC/usable/hosts、切り分け観点）を1本に統合
-
 - 既存メモを参照しつつ、誤解しやすい点（GW≠マスク、NWの定義など）をまとめ直した
-
 - GitHub：日次ログ追記＋notes追加
 
 ### 予定との差分（未達）
-
 - Linux：`linux/day3-etc-search.md` の実施・更新 → 未達
-
-- Java：`Console Todo`小改善（削除/完了/入力バリデーション）＋README追記 → 未達
-
+- Java：Console Todo 小改善（削除/完了/入力バリデーション）＋README追記 → 未達
 - Network：サブネット練習3問（`network/subnetting-practice.md`）＋手順メモ（`network/notes/subnet-basic.md`）→ 未達
 
 ### 詰まった点（現象／原因／解決）
-
 - 学習が進まない：試験による疲労・時間制約 → 当日は「notes統合＋ログ更新」に絞って継続を優先
 
 ### 明日の予定（2026-01-09）
-
 - Network：サブネット練習3問を追加（`network/subnetting-practice.md`）＋手順メモ追記（`network/notes/subnet-basic.md`）
-
 - Linux：権限（`chmod`）とコピー（cp/隠しファイル含む）の要点を notes に整理（`linux/troubleshooting-playbook.md` へ追記候補）
-
-- Java：`Console Todo v0.3`（改善1件：削除/完了/入力バリデーション）を実装し、READMEに操作例追記
+- Java：Console Todo v0.3（改善1件：削除/完了/入力バリデーション）を実装し、READMEに操作例追記
 
 ### 今日のキーワード（3〜5個）
-
 - CIDR（/n）
-
 - ブロックサイズ
-
 - NW/BC/usable
-
 - デフォルトゲートウェイ
-
 - notes統合
 
 ### 証拠リンク（リポジトリ内パス）
-
 - `network/notes/network-basics.md`
-
 - `weekly-log/week1.md`（本日の追記）
+
+---
 
 ## 2026-01-09（Day5）
 ### 今日の目標
@@ -204,11 +194,10 @@ javac -version
   - user/group 周り（`useradd/userdel/usermod/groupdel/getent/groups/id`）を動画＋演練で確認
   - playbook 用の Case を整理し、追記フォーマットを「現象/原因/対処」に統一
 - Java：
-  - `Console Todo v0.3` を実装（削除機能＋入力バリデーション：全角/英字/範囲外）
+  - Console Todo v0.3 を実装（削除機能＋入力バリデーション：全角/英字/範囲外）
   - 操作ログ＋スクリーンショットを追加し、README を更新
   - Java 基礎メモを作成（`Scanner/new/リテラルと変数/引数ありなし/try-catch`）
-- Network：
-  - 本日は停止（未実施）
+- Network：本日は停止（未実施）
 
 ### 予定との差分（未達）
 - Network：サブネット練習 3問＋手順メモ → 未実施（本日停止）
@@ -224,7 +213,6 @@ javac -version
 - Java：Console Todo v0.4 着手（ファイル保存/読み込みの設計→最小実装まで。まずは「起動時に読み込み→終了時に保存」を目標）
 - Network：本日は優先度低（時間が余ればサブネット練習を1問だけ）
 
-
 ### 今日のキーワード（3〜5個）
 - useradd / userdel / usermod
 - getent group
@@ -233,17 +221,16 @@ javac -version
 - try-catch
 
 ### 証拠リンク（リポジトリ内パス）
-```
-- linux/troubleshooting-playbook.md
-- java/notes/java-basics.md
-- java/ConsoleTodo/v0.3/Main.java
-- java/ConsoleTodo/v0.3/README.md
-- java/screenshots/ConsoleTodo_v0.3_run.jpg
-- weekly-log/week1.md
-```
+- `linux/troubleshooting-playbook.md`
+- `java/notes/java-basics.md`
+- `java/ConsoleTodo/v0.3/Main.java`
+- `java/ConsoleTodo/v0.3/README.md`
+- `java/screenshots/ConsoleTodo_v0.3_run.jpg`
+- `weekly-log/week1.md`
+
+---
 
 ## 2026-01-10（Day6）
-
 ### 今日の目標
 - CCNA Day2 / Day3 を視聴して理解を固める（配線・TCP/IPモデル）
 - Day2 の配線トポロジ実験を実施し、証跡（スクリーンショット）を残す
@@ -269,7 +256,7 @@ javac -version
 - 原因：「論理的に同一層で会話している」ことと「実装上の上下層受け渡し」を同じ意味で捉えていた
 - 解決：Same-layer＝論理（対向の同じ層と会話している“ように見える”）、Adjacent-layer＝同一装置内の上下層連携、と分けて整理した
 
-### 明日の予定
+### 明日の予定（2026-01-11）
 - 学習は最小限で実施
   - Linux：未達分を1ブロックだけ進める（視聴＋実行ログ1本）
   - Network：CCNA Day4 を視聴（notes は要点のみ）
@@ -283,7 +270,6 @@ javac -version
 - Hop-by-hop
 
 ### 証拠リンク（リポジトリ内パス）
-
 - ノート（Day3）：`network/notes/ccna-day3-tcpip-model.md`
 - ノート画像：
   - `network/notes/images/day3_tcpip-model_details.jpg`
@@ -292,6 +278,8 @@ javac -version
   - `network/notes/images/day3_decapsulation.jpg`
 - 実験証跡（Day2配線）：`network/screenshots/day2_lab_connecting-devices_topology.jpg`
 - README（教材リンク＋証拠導線）：`network/README.md`
+
+---
 
 ## 2026-01-11（Day7）
 ### 今日の目標
@@ -305,17 +293,17 @@ javac -version
 - 停止が失敗（`sudo`なし）→原因切り分け（権限不足／ユニット名の違い）→修正（`sudo + ssh.service`）で再実行
 - journalctlでサービスログを確認し、証跡としてスクリーンショットを保存
 - `linux/day7/linux-systemctl-ssh-log.md` に「失敗原因→修正→検証」の順で整理して記録
-- ルートREADMEにDay7（`Linux：systemctl/SSH`）の成果リンクを追記
+- ルートREADMEにDay7（Linux：systemctl/SSH）の成果リンクを追記
 
 ### 予定との差分（未達）
-- ネットワーク：本日は余力が不足し、CCNA Day4は未着手（面接対応に想定以上の時間を要したため）
+- ネットワーク：本日は余力が不足し、CCNA Day4は未着手
 
 ### 詰まった点（現象・原因・解決）
 - 現象：`systemctl stop sshd` が停止できず「Interactive authentication required」と表示された
 - 原因：sudoなしで実行したため権限不足。加えてUbuntu系ではユニット名が `sshd.service` ではなく `ssh.service`
 - 解決：`sudo systemctl stop ssh`（=ssh.service）に修正し、停止/起動/ログ確認まで実施した
 
-### 明日の予定
+### 明日の予定（2026-01-12）
 - ネットワーク：CCNA Day4（視聴＋要点メモ、可能ならLab証跡1点）
 - Linux：`systemctl`の復習（`enable/disable、journalctl`の確認）を最小回収
 - （余力があれば）Javaを小改修1コミット
@@ -333,3 +321,30 @@ javac -version
 - 証跡（start）：`linux/screenshots/day7-ssh-start.jpg`
 - 証跡（journal）：`linux/screenshots/day7-ssh-journal.jpg`
 - README導線：`README.md`
+
+---
+
+## Week1 まとめ（2026-01-05〜2026-01-11）
+### 1) 今週の到達点（成果）
+- リポジトリの骨子（README / weekly-log）を作成し、学習の証跡導線を確立した
+- Linux：基本コマンド（作成/書き込み/閲覧、コピー/移動/削除、検索/集計/ログ化）を一通り実行し、詰まりを Playbook 化した
+- Java：Console Todo を v0.1 → v0.3 まで段階的に改善し、操作例・スクリーンショットを残した
+- Network：OSI/TCP-IP/ARP と一次切り分け（疎通/DNS/経路/HTTP）を整理し、CCNA Day2/Day3 の視聴＋Lab証跡まで到達した
+- ITパスポート：受験を完了した（Day4）
+
+### 2) 今週の主要な詰まり（Top）と回収
+- パス/カレントのズレ：`cp: cannot stat` → 作業ディレクトリとパスを見直して解決
+- 権限/サービス操作：`systemctl stop` が失敗 → `sudo` 必要、`ssh`/`sshd` のユニット名差を確認して解決
+- 画面が乱れる：バイナリを `cat` → `Ctrl+C` / `reset` で復旧（以降は `file` で事前確認を意識）
+- ワイルドカード：マッチしない削除 → `ls <pattern>` で事前確認する運用に固定
+- PowerShell の `curl` 別名：`curl.exe` で回避してHTTPヘッダ確認を継続
+
+### 3) 証跡として強いポイント（面接で示せる）
+- 「層で切り分け（L3→DNS→経路→HTTP）」を実行し、ログとして残している
+- 「失敗→原因→修正→再検証」を文書化している（systemctl/SSH）
+- 仕様・入力バリデーション（全角/英字/範囲外）を意識してアプリを改善している（ConsoleTodo v0.3）
+
+### 4) 次週（Week2）のフォーカス案
+- Network：CCNA Day4 以降を進め、サブネット演習を継続（テンプレ手順で定着させる）
+- Linux：Network学習の補助として、ログ/サービス/権限の最小回収（PlaybookにCase追加）
+- Java：原則一時停止（必要最小の保守のみ）。成果物は「動く状態」で維持する
