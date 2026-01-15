@@ -2,9 +2,13 @@
 
 ## 実行環境
 - Windows + WSL (Ubuntu)
+- JST：実行日未記載（ログ出力のタイムスタンプは端末表示に従う）
+
+## 目的
+- ユーザー/グループの確認、作成、追加グループ付与、削除までを一通り検証し、出力を証跡として残す。
 
 ## 1) group の確認（getent）
-```bash
+```
 getent group | tail
 
 messagebus:x:101:
@@ -18,6 +22,7 @@ admin:x:106:
 netdev:x:107:jyuuroku
 jyuuroku:x:1000:
 ```
+### 誤操作：DB名の指定ミス（参考）
 ```
 getent groups
 
@@ -101,3 +106,8 @@ landscape:x:104:105::/var/lib/landscape:/usr/sbin/nologin
 polkitd:x:990:990:User for polkitd:/:/usr/sbin/nologin
 jyuuroku:x:1000:1000:,,,:/home/jyuuroku:/bin/bash
 ```
+
+## メモ（学び）
+- `usermod -aG <group> <user>`：**先にグループ、後にユーザー**。`-a` を付けないと追加グループが上書きされる可能性がある。
+- `getent group` の `members` は「追加グループのメンバー」欄で、主グループ（primary group）は表示されない場合がある。
+- `userdel -r` の `mail spool ... not found` は `/var/mail/<user>` が存在しないだけで致命的ではない。
