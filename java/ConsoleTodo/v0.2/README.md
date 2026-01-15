@@ -6,13 +6,18 @@
 - タスク一覧表示（番号付き）
 - メソッド分割による可読性改善（`showMenuAndRead / addTask / listTasks`）
 
-## 実行方法（IntelliJ IDEA）
+## 実行方法
+### IntelliJ IDEA
+1. プロジェクトを開く
+2. `Main.java` を開く
+3. ▶（Run）で実行し、コンソールの指示に従って入力する
+
+### WSL / Ubuntu
+```bash
+javac Main.java
+java Main
 ```
-1) IntelliJ IDEA でプロジェクトを開く
-2) `Main.java` を開く
-3) 右上の ▶（Run）を押す（または `Shift + F10`）
-4) コンソールに表示されるプロンプトに入力して操作する
-```
+
 ## 操作例
 ### 追加
 
