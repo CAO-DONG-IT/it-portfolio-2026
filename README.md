@@ -2,29 +2,33 @@
 IT学習ポートフォリオ（2026年）
 
 ## 目標
-未経験からITエントリー職（ITサポート／ヘルプデスク／テスター／運用保守／初級インフラ）への就職を目指す。
+未経験から、インフラ運用・保守（ネットワーク／Linux）を中心としたITエントリー職を目指し、学習と成果物の証跡化を継続しています。
 
-## 学習範囲
-- Linux基礎（コマンド／権限／ログ／基本ネットワーク）
-- Java基礎（小さなコンソールアプリを継続改善）
-- ネットワーク基礎（OSI/TCP/IP／IP・サブネット／疎通確認／基本トラブルシュート）
-- AWS基礎（第2週から：EC2での簡易構築）
+## 学習の主軸（現在）
+- Network（CCNA 200-301）：主軸
+- Linux（運用基礎）：補助（一次切り分け／ログ確認／サービス操作）
+- Java：一時停止（既存成果は保持）
+- AWS：保留（再開時に追記）
 
-## 成果物
-- Linux：トラブルシューティング手順（playbook）、コマンド演習ログ
-- Java：コンソールアプリ（READMEに実行手順と操作例を記載）
-- ネットワーク：学習メモ（notes）、疎通確認ログ、サブネット演習
-- AWS：EC2構築手順、セキュリティ／コストチェック（第2週から）
+## 証跡への導線（まずはここ）
+### Network（CCNA）
+- 入口：`network/README.md`
+- トラブルシューティング手順：`network/troubleshooting-network.md`
+- サブネット演習：`network/subnetting-practice.md`
 
-## 学習記録
-`weekly-log/` に日次ログを記録します。
+### Linux
+- トラブルシューティング・プレイブック：`linux/troubleshooting-playbook.md`
+- Day7（systemctl/SSH のログ）：`linux/day7/linux-systemctl-ssh-log.md`
+
+### 学習ログ
+- `weekly-log/week1.md`（週次ファイルに日次追記）
 
 ## ディレクトリ構成（概要）
-- `linux/`：Linuxの学習メモ／演習ログ／playbook
-- `java/`：Javaアプリの実装とREADME、実行例
-- `network/`：ネットワーク学習メモ（notes）、疎通ログ、サブネット演習
-- `aws/`：AWS（EC2）構築手順（第2週以降）
+- `network/`：CCNAベースの学習メモ（notes）／画像／実験証跡／トラブルシュート
+- `linux/`：Linuxの学習ログ／playbook／スクリーンショット
+- `java/`：ConsoleTodo（成果物は保持、現状は一時停止）
+- `aws/`：保留（再開時に追記）
 - `weekly-log/`：週次ファイルに日次追記
 
 ## 注意
-個人情報（住所・電話・メール等）は記載しません。面接時はリポジトリURLを共有します。
+※個人情報（住所・電話番号等）は本リポジトリには含めておりません。
