@@ -75,10 +75,15 @@
 - 対処：`curl.exe -I https://example.com` または `Invoke-WebRequest -Method Head https://example.com`
 - 証拠：`HTTP/1.1 200 OK` を取得できたログを保存する
 
-### Case2：（追加予定）
-- 現象：
-- 原因：
-- 対処：
+### Case 2：Cisco IOS でコマンドが認識されない（% Unrecognized command）
+現象：グローバルコンフィギュレーションモード （(config)#）で `show` などの確認コマンドを実行すると` % Unrecognized command `と表示される。
+
+原因：Cisco IOS のコマンド階層による制限。`show`は特権実行モードのコマンドであり、設定モードでは直接実行できないため。
+
+対処：`exit`でモードを戻すか、コマンドの先頭に `do` を付けて（例：`do show running-config`）強制実行する。
+
+証拠：`do show running-config` または `write（copy run start）`が正常に受け付けられた実行ログ。
+      `network/CCNA-log/ccna-day4-ios-cli-log.md`を参照
 
 ### Case3：（追加予定）
 - 現象：
