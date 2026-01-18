@@ -79,7 +79,6 @@
 
 
 ### Case6：`useradd` したのに `/home` にユーザー用ディレクトリが作られない
-
 - 現象：
   `useradd` 実行後、`/home/<user>` が存在しない
 - 原因：
@@ -89,7 +88,6 @@
 
 
 ### Case7：`getent groups` が失敗する（Unknown database）
-
 - 現象：
   `getent groups` → `Unknown database: groups`
 - 原因：
@@ -111,3 +109,15 @@
 - 現象：`systemctl stop sshd` で意図したサービスを操作できない（または別名に解決される）
 - 原因：ディストリビューションによりユニット名が異なる（例：Ubuntu/Debian系は `ssh.service`）
 - 対処：`systemctl status sshd` と `systemctl status ssh --no-pager` で実体を確認し、正しいユニット名で操作する
+
+### Case 11：dateコマンドの構文エラー（extra operand）
+- 現象：`date + "%Y-%m-%d..."` 実行時に `extra operand` エラーが発生する。
+- 原因：`+`（接頭辞）とフォーマット文字列の間に不要なスペースがあるため、コマンドが第2引数として誤認した。
+- 対処：`+` の直後にスペースを入れず、`date +"%Y-%m-%d..."` と記述する。
+
+### Case 12：シンボリックリンクの循環参照（Too many levels of symbolic links）
+- 現象：作成したリンクを `cat` すると `Too many levels of symbolic links` と表示される。
+- 原因：`ln -s timezone ~/` を `/etc` ディレクトリ内で実行したため、リンクファイルが自分自身（同じ名前）を指す無限ループが発生した。
+- 対処：
+  1. `rm <リンク名>` で壊れたリンクを削除。
+  2. `ln -s /etc/timezone ~/` のように、ターゲットを絶対パスで指定して再作成する。
