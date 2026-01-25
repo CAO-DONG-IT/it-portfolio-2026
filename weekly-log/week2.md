@@ -1,4 +1,6 @@
-# week2
+# WEEK2 Weekly Log
+
+---
 
 ## 2026-01-18（Day1）
 ### 今日の目標
@@ -56,4 +58,52 @@
 - `linux/notes/date-and-symlink.md`
 - `linux/troubleshooting-playbook.md`
 
-------
+---
+
+## 2026-01-25（Day2）
+### 今日の目標
+- Network：Jeremy's IT Lab **CCNA 200-301 Day5「Switching Part1」** を復習＋新規視聴し、Ethernetフレーム理解を固める
+- Network：Preamble / SFD / Type・Length / FCS / Unicast フレームを整理し、ノート1本を完成させる
+- Linux：第4章 **IPアドレスとホスト名** を進め、`ip` コマンド中心に確認ノート1本を作成する
+
+### 今日やったこと
+- 学習時間：4.0h（Network → Linux）
+- Network（CCNA Day5 / Switching Part1）
+  - Ethernetフレーム構造（Preamble / SFD / Type・Length / Payload / FCS）を整理した
+  - **Preamble と SFD** を同期確立のための前処理として一体で理解した
+  - **Type と Length** の違い（Ethernet II / IEEE 802.3）を値の範囲で整理した
+  - **FCS** の役割（CRC による誤り検出）を確認した
+  - **Unicast フレーム** の基本動作とスイッチ転送の前提を整理した
+- Linux（IPアドレス／ホスト名）
+  - `ifconfig` が非推奨であることを確認し、`ip addr` を使用して IP 情報を取得した
+  - `lo`（ループバック）と `eth0` の役割を読み取り、表示項目を整理した
+  - `eth0` 命名が環境依存であり、`ens33` 等と異なる理由を理解した
+  - IPアドレスとホスト名の役割分担を整理した
+
+### 予定との差分（未達）
+なし
+
+### 詰まった点（現象／原因／解決）
+- 現象：Type フィールドと Length フィールドが混同しやすい
+- 原因：Ethernet II と IEEE 802.3 で同一フィールドの解釈が異なるため
+- 解決：値の範囲と上位プロトコル判別で整理し、ノートに明記した
+- 現象：`ifconfig` コマンドが見つからない
+- 原因：`net-tools` が標準でインストールされていない環境
+- 解決：`ip addr` を使用する方針に切り替えた
+
+### 明日の予定（2026-01-26）
+- Network：CCNA Day5 Switching Part2 へ進む
+- Network：MACアドレス学習後、フレーム転送を図で整理する
+- Linux：IP設定変更と `hostnamectl` は確認ベースで最小実施する
+
+### 今日のキーワード（3〜5個）
+- Ethernet フレーム
+- Preamble / SFD
+- Type・Length
+- FCS（CRC）
+- `ip addr`
+
+### 証拠リンク（リポジトリ内パス）
+- `weekly-log/week2.md`
+- `network/notes/ccna-day5_Switching_Part1.md`
+- `linux/notes/ip_and_hostname.md`
