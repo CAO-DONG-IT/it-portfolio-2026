@@ -36,6 +36,10 @@
 - `network/notes/network-basics.md`：ネットワーク基礎（用語・CIDR・一次切り分けの要点）
 - `network/notes/osi-tcpip-arp_tcpip-model_merged.md`：OSI/TCP-IP/ARP（混同防止の統合ノート）
 - `network/notes/commands-proof.md`：一次切り分けコマンドの再現ログ（証跡）
+- `notes/ccna-day5-Switching-Part1.md`：Day5：Switching Part 1  
+- `notes/ccna-day6-Switching-Part2.md`：Day6：Switching Part 2
+  - `CCNA-log/ccna-day6-switching-part2-lab-log.md`：Labログ
+    
 
 ## 運用ルール（公開リポジトリ）
 - 個人情報（氏名、住所、メール等）は含めない
