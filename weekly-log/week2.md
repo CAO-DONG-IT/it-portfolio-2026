@@ -107,3 +107,60 @@
 - `weekly-log/week2.md`
 - `network/notes/ccna-day5_Switching_Part1.md`
 - `linux/notes/ip_and_hostname.md`
+
+‐‐‐
+
+## 2026-01-26（Day3）
+### 今日の目標
+- Network：Jeremy's IT Lab **CCNA 200-301 Day6「Ethernet LAN Switching（Part 2）」** を視聴し、ARP と ICMP（ping）の関係を説明できるようにする
+- Network：スイッチの **MACアドレス学習（DYNAMIC）→ Flood / Known Unicast** の流れを Lab で確認し、ノート＋LabログをGitHubに反映する
+- Network：IOS CLI の詰まり（`show` 実行モード、`address-table`、DNS lookup）を整理し、再発防止メモとして残す
+- Linux：本日は実施しない
+
+### 今日やったこと
+- 学習時間：Network（CCNA）中心
+- Network（CCNA Day6 / Ethernet LAN Switching Part 2）
+  - **ARP（IP→MAC）** と **ICMP（ping）** の役割を整理した（同一セグメントでも ping の前段で ARP が発生する点を確認）
+  - Packet Tracer で Lab を実施し、PC間の疎通（ping 成功）を確認した
+  - SW1 / SW2 で `show mac address-table` を用いて、通信後に **DYNAMIC エントリが学習される**ことを確認した
+  - `clear mac address-table dynamic` を実行し、MACテーブルが空に戻ることを確認した（学習状態のリセット）
+  - IOS CLI の詰まりを整理した
+    - `SW(config)#` では `show` が実行できない → `SW#` または `do show ...`
+    - `address-table` はハイフン必須
+    - 不明コマンド入力で `Translating ...`（DNS lookup）が走る → `no ip domain-lookup` で抑止
+
+### 予定との差分（未達）
+- Linux：本日は学習しない（NetworkのLabとノート整備を優先）
+
+### 詰まった点（現象／原因／解決）
+- 現象：`SW(config)#show ...` がエラーになる
+- 原因：`show` は特権EXECモード（`SW#`）のコマンドで、設定モードでは直接実行できない
+- 解決：`SW#` に戻して実行、または `do show ...` を使用する
+
+- 現象：`show mac address table` が通らない
+- 原因：正しいコマンドは `show mac address-table`（ハイフン必須）
+- 解決：`address-table` で実行する
+
+- 現象：`cr` など不明コマンド入力後に `Translating ...` が出て止まったように見える
+- 原因：IOS が不明文字列をホスト名として解釈し、DNS lookup を試行するため
+- 解決：`Ctrl+Shift+6` で中断。恒久対策として `no ip domain-lookup` を設定する
+
+### 明日の予定（2026-01-27）
+- Network：Day6 の内容を復習し、ARP→ICMP→MAC学習の流れを図解（1枚）にまとめる
+- Network：`show arp` / `show mac address-table` の出力の読み方（VLAN / Type / Port）を短く整理する
+- GitHub：weekly-log 更新と導線（README）を最終確認する
+
+### 今日のキーワード（3〜5個）
+- ARP（IP→MAC）
+- ICMP（ping）
+- MACアドレステーブル（DYNAMIC）
+- Unknown Unicast / Flood
+- `show mac address-table` / `clear mac address-table dynamic`
+
+### 証拠リンク（リポジトリ内パス）
+- `weekly-log/week2.md`
+- `network/notes/ccna-day6-Switching-Part2.md`
+- `network/CCNA-log/ccna-day6-switching-part2-lab-log.md`
+
+---
+
