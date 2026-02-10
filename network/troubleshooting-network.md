@@ -75,6 +75,8 @@
 - 対処：`curl.exe -I https://example.com` または `Invoke-WebRequest -Method Head https://example.com`
 - 証拠：`HTTP/1.1 200 OK` を取得できたログを保存する
 
+---
+
 ### Case 2：Cisco IOS でコマンドが認識されない（% Unrecognized command）
 現象：グローバルコンフィギュレーションモード （(config)#）で `show` などの確認コマンドを実行すると` % Unrecognized command `と表示される。
 
@@ -85,7 +87,74 @@
 証拠：`do show running-config` または `write（copy run start）`が正常に受け付けられた実行ログ。
       `network/CCNA-log/ccna-day4-ios-cli-log.md`を参照
 
-### Case3：（追加予定）
+---
+
+### Case3：`R1>` で `conf t` が実行できない
 - 現象：
+  - `R1>conf t` 実行時に `% Invalid input detected` が表示される。
 - 原因：
+  - ユーザEXECモード（`R1>`）では設定コマンドを実行できない。
 - 対処：
+  - `enable` で特権EXECモード（`R1#`）へ移行してから `conf t` を実行する。
+
+---
+
+### Case 4：`copy running-config` が `% Incomplete command.`
+- 現象：
+  - `copy running-config` のみ入力すると `% Incomplete command.` になる。
+- 原因：
+  - コピー先（宛先）が未指定のため。
+- 対処：
+  - `copy running-config startup-config` を実行する。
+  - 代替として `write memory` でも保存可能。
+
+---
+
+### Case 5：`R1(config)#` で `copy` が通らない
+- 現象：
+  - 設定モードで `copy running-config ...` が無効入力になる。
+- 原因：
+  - `copy` は特権EXECモードのコマンドであり、設定モードでは実行できない。
+- 対処：
+  - `end` または `Ctrl+Z` で `R1#` に戻ってから実行する。
+
+---
+
+### Case 6：`Translating "..."`
+- 現象：
+  - 不明な文字列入力後に `Translating "...".domain server ...` が表示され、止まったように見える。
+- 原因：
+  - 不明コマンドをホスト名として解釈し、DNS lookup を試行しているため。
+- 対処：
+  - `Ctrl+Shift+6` で中断する。
+  - 再発防止として以下を設定する。
+  ```text
+  conf t
+  no ip domain-lookup
+  end
+  ```
+  
+---
+### Case 7：初回pingのみ timeout（25% loss）
+- 現象：
+  - 初回 ping で 1 回目のみ `Request timed out.`、以降は応答する。
+- 原因：
+  - ARP解決（宛先またはデフォルトゲートウェイのMAC学習）が先に発生するため。
+- 対処：
+  - 異常と断定せず、2回目以降の連続応答を確認する。
+  - 必要に応じて `show arp` / `show ip interface brief` で補足確認する。
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+  
