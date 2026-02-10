@@ -164,3 +164,63 @@
 
 ---
 
+## 2026-02-10（Week2 Day4）
+### 今日の目標
+- Network：CCNA Day8（IPv4 Addressing Part 1 / Part 2）を完了し、アドレス計算とIF設定の流れを定着させる
+- Network：Day8 Lab（R1のIF設定・確認・保存、PC1→PC2/PC3疎通）を実施し、証跡を残す
+- Network：CLIのつまずきを `troubleshooting-network.md` にCase形式で整理する
+- Linux：本日は実施しない
+
+### 今日やったこと
+- 学習時間：Network中心
+- Network（CCNA Day8）
+  - IPv4の基礎（ネットワーク部/ホスト部、プレフィックス長）を復習した
+  - 利用可能ホスト数（`2^N - 2`）と、ネットワークアドレス/ブロードキャストアドレスの扱いを整理した
+  - Day8 Labの要件に沿って、R1のインターフェース設定・状態確認・保存まで実施した
+- Lab（R1）
+  - `show ip interface brief` で IF のIP/Status/Protocol を確認
+  - G0/0: `15.255.255.254/8`、G0/1: `182.98.255.254/16`、G0/2: `201.191.20.254/24` を確認
+  - `show running-config`、`show interfaces` で設定内容を確認
+  - `copy running-config startup-config` / `write memory` で保存完了
+- 疎通確認（PC1）
+  - PC1 → PC2（182.98.0.1）: 初回1発目 timeout、以降応答（Sent=4, Received=3, Lost=1）
+  - PC1 → PC3（201.191.20.1）: 初回1発目 timeout、以降応答（Sent=4, Received=3, Lost=1）
+  - 初回ロスはARP解決に伴う挙動として解釈し、疎通成立と判断
+- ドキュメント反映
+  - Day8学習ノートを新規作成
+  - Day8 Labログを新規作成し、PC1疎通証跡を追記
+  - `network/troubleshooting-network.md` にDay8のCase（現象/原因/対処）を追記
+
+### 予定との差分（未達）
+- なし（Linuxは当初方針どおり未実施）
+
+### 詰まった点（現象／原因／解決）
+- 現象：`R1>conf t` が実行できない  
+- 原因：ユーザEXECモードでは設定コマンドを実行できない  
+- 解決：`enable` で `R1#` へ移行後に `conf t` を実行
+
+- 現象：`copy running-config` が `% Incomplete command.`  
+- 原因：コピー先未指定  
+- 解決：`copy running-config startup-config` または `write memory` を使用
+
+- 現象：不明コマンド入力後に `Translating ...` が表示される  
+- 原因：DNS lookup が走る  
+- 解決：`Ctrl+Shift+6` で中断、`no ip domain-lookup` を設定
+
+### 次の予定
+- Network：Day9（IPv4 Addressingの次回）に進み、同形式でノート＋Labログを作成
+
+### 今日のキーワード（3〜5個）
+- IPv4 Addressing
+- `2^N - 2`
+- `show ip interface brief`
+- `copy running-config startup-config`
+- ARP解決（初回ping timeout）
+
+### 証拠リンク（リポジトリ内パス）
+- `weekly-log/week2.md`
+- `network/notes/ccna-day8-ipv4-addressing-part1-part2.md`
+- `network/CCNA-log/ccna-day8-ipv4-addressing-lab-log.md`
+- `network/troubleshooting-network.md`
+- `network/screenshots/day8_lab_ipv4_addressing_PC1.png`
+- `network/screenshots/day8_lab_ipv4_addressing_R1.png`
