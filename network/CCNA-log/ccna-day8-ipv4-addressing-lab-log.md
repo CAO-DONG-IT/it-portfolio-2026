@@ -74,9 +74,9 @@ Building configuration...
 
 ## 3. 追加予定（証跡）
 
-- PC1 → PC2 の ping 成功スクリーンショット(network/notes/images)
+- PC1 → PC2 の ping 成功スクリーンショット(network/screenshots)
 
-- PC1 → PC3 の ping 成功スクリーンショット(network/notes/images)
+- PC1 → PC3 の ping 成功スクリーンショット(network/screenshots)
 
 - 必要に応じて `show ip route` の出力（R1）を追記
 
