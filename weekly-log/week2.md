@@ -224,3 +224,55 @@
 - `network/troubleshooting-network.md`
 - `network/screenshots/day8_lab_ipv4_addressing_PC1.png`
 - `network/screenshots/day8_lab_ipv4_addressing_R1.png`
+
+---
+
+## 2026-02-14（Week2 Day5）
+### 今日の目標
+- Network：CCNA Day9〜Day11（Switch Interfaces / IPv4 Header / Routing Fundamentals Part1 / Static Routing Part2）の学習内容を統合整理する
+- Network：Lab実施内容を振り返り、コマンド・確認観点・つまずき対処を一本化する
+- GitHub：統合ノートと weekly-log を更新し、面接で説明できる流れに整える
+- Linux：本日は実施しない
+
+### 今日やったこと
+- 学習の統合整理（Day9〜Day11）
+  - Day9（Switch Interfaces）
+    - `show ip interface brief` / `show interfaces status` / `show interfaces <if>` の役割を整理
+    - 未使用ポート管理（description + shutdown）と `interface range` の使い方を再確認
+    - duplex/speed・CRC等エラーカウンタの確認観点を整理
+  - Day10（IPv4 Header）
+    - IPv4ヘッダ主要フィールド（Version, IHL, Total Length, TTL, Protocol, Checksum, Src/Dst）を復習
+    - IHLとTotal Length、TTLとProtocolなど混同しやすい点を切り分けて整理
+  - Day11 Part1（Routing Fundamentals）
+    - ルーティングテーブル参照による転送判断（宛先ネットワーク、次ホップ、出力IF）を整理
+    - 返り経路まで含めた疎通成立条件を再確認
+  - Day11 Part2（Static Routing）
+    - 静的ルート、デフォルトルートの設定意図を整理
+    - `show ip route` / `show running-config | include ip route` / `ping` / `traceroute` の検証フローを一本化
+- ドキュメント整備
+  - Day9〜Day11を分割せず、統合ノートとして一本化
+  - ノート末尾に「面接で話せる内容（流れ）」を追加済み
+
+### 予定との差分（未達）
+- なし（本日は統合作業を優先し、計画どおり）
+
+### 詰まった点（現象／原因／解決）
+- ノートを参照
+
+### 次の予定
+- Network：次のCCNAセクションの予習（中文要点→動画→Lab）を同じフォーマットで実施
+
+### 今日のキーワード（3〜5個）
+- Switch Interfaces
+- IPv4 Header
+- Routing Fundamentals
+- Static Route / Default Route
+- `show ip route`
+
+### 証拠リンク（リポジトリ内パス）
+- `weekly-log/week2.md`
+- `network/notes/ccna-day9,10,11- Switch_Interfaces-IPv4_Header-Routing_Fundamentals-Static_Routing.md
+`  
+
+---
+
