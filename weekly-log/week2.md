@@ -164,7 +164,7 @@
 
 ---
 
-## 2026-02-10（Week2 Day4）
+## 2026-02-10（Day4）
 ### 今日の目標
 - Network：CCNA Day8（IPv4 Addressing Part 1 / Part 2）を完了し、アドレス計算とIF設定の流れを定着させる
 - Network：Day8 Lab（R1のIF設定・確認・保存、PC1→PC2/PC3疎通）を実施し、証跡を残す
@@ -227,7 +227,7 @@
 
 ---
 
-## 2026-02-14（Week2 Day5）
+## 2026-02-14（Day5）
 ### 今日の目標
 - Network：CCNA Day9〜Day11（Switch Interfaces / IPv4 Header / Routing Fundamentals Part1 / Static Routing Part2）の学習内容を統合整理する
 - Network：Lab実施内容を振り返り、コマンド・確認観点・つまずき対処を一本化する
@@ -275,4 +275,69 @@
 `  
 
 ---
+## 2026-02-15（Day6）
+### 今日の目標
+- Network：CCNA Day12「The Life of a Packet」を視聴し、L2/L3の処理フローを説明できる状態にする
+- Network：ARP（Request/Reply）と通常IPv4転送（0x0800）の違いを整理する
+- GitHub：手書きノート画像を含めて、Day12ノートとweekly-logを更新する
+- Linux：本日は実施しない
+
+### 今日やったこと
+- 学習実施（CCNA Day12）
+  - 「Life of a Packet」の全体フローを学習した
+  - 同一セグメント通信と異セグメント通信の差分を整理した
+  - 異セグメント通信時は、まずデフォルトゲートウェイMAC解決（ARP）が必要であることを確認した
+- ARPの整理（理解の明確化）
+  - ARP Request/Reply は EtherType `0x0806` のEthernetフレームとして送受信されることを確認
+  - Request/Reply の区別は ARPヘッダの `OPER`（1/2）で行うことを整理
+  - ARP完了後の実データは EtherType `0x0800`（IPv4）で転送されることを整理
+- ルータ処理の整理（R1視点）
+  - 受信フレームのL2確認（Dst MAC/FCS）→L2除去→L3（IPv4ヘッダ）確認
+  - ルーティングテーブル参照→次ホップ決定→TTL減算→IPヘッダチェックサム再計算
+  - 出力側L2ヘッダ再付与（再カプセル化）で次ホップへ転送
+- 既習範囲の統合復習
+  - Day9（Switch Interfaces）、Day10（IPv4 Header）、Day11（Routing/Static Route）とのつながりを再確認
+  - 「ホップごとに変わる情報」と「原則維持される情報」を分けて言語化
+- ドキュメント更新
+  - Day12学習ノート（GitHub貼付用）を作成
+  - 手書きノート画像（4枚）をアップロードして証跡化
+
+### 予定との差分（未達）
+- なし（本日の目標範囲を完了）
+
+### つまずきと対処（現象／原因／解決）
+- 現象：ARPフレームとIPv4データフレームの関係が混同しやすい  
+- 原因：どちらもEthernet上を流れるため、用途の区別が曖昧になった  
+- 解決：  
+  - ARP：EtherType `0x0806`（MAC解決）  
+  - IPv4データ：EtherType `0x0800`（実データ転送）  
+  に分離して整理した
+
+- 現象：Request/Replyの判定箇所が曖昧  
+- 原因：Ethernetヘッダ側で判定すると誤解した  
+- 解決：ARPヘッダの `OPER`（1=request, 2=reply）で判定する形に修正した
+
+- 現象：ルータがどこまで見るか（L2のみかL3も見るか）が不明確  
+- 原因：スイッチ動作とルータ動作を同列で捉えた  
+- 解決：ルータはL2終端後にL3ヘッダを確認して転送判断する、と手順で固定化した
+
+### 次の予定
+- Network：Day13以降の動画を同フロー（中文要点→視聴→Lab→証跡化）で進める
+- Network：Day12ノートを最終整形し、図/用語表記（EtherType, OPER, TTL）を統一する
+- GitHub：`network/notes` と `network/CCNA-log` の導線をREADMEで再確認する
+
+### 今日のキーワード（3〜5個）
+- Life of a Packet
+- ARP（Request / Reply）
+- EtherType（0x0806 / 0x0800）
+- Decapsulation / Recapsulation
+- TTL
+
+### 証拠リンク（リポジトリ内パス）
+- `weekly-log/week2.md`
+- `network/notes/ccna-day12-life-of-a-packet.md`
+- `network/notes/images/day12-The-Life-of-a-Packet_1.jpg`
+- `network/notes/images/day12-The-Life-of-a-Packet_2.jpg`
+- `network/notes/images/day12-The-Life-of-a-Packet_3.jpg`
+- `network/notes/images/day12-The-Life-of-a-Packet_4.jpg`
 
