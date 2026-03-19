@@ -15,9 +15,9 @@
 `YYYY-MM-DD_v0.x_<feature>_<action>.png`
 
 例：
-- `2026-01-06_v0.1_input_nonempty_ok.png`
-- `2026-01-07_v0.2_menu_add_list_ok.png`
-- `2026-01-07_v0.2_validation_fullwidth_ng.png`
+- `ConsoleTodo_v0.1_.png`
+- `ConsoleTodo_v0.2_.png`
+- `ConsoleTodo_v0.3_.png`
 
 ## README からの参照
 各バージョンの README（例：`java/ConsoleTodo/v0.1/README.md`）の「操作例」や「注意」から、
