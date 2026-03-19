@@ -1,11 +1,13 @@
+# AWS
 
-# AWS（Week2から開始）
+## 現在の状態
+- 未着手
+- 現時点では、Network と Linux を優先しているため、AWS 学習は保留としている
 
 ## 方針
-- Week1：AWSは触らない（費用/アカウント/ネットワークで詰まるリスクを回避）
-- Week2：EC2 → Security Group → SSH → Nginx → Stop（コスト管理まで）
+- 面接準備と基礎学習の優先度を踏まえ、AWS は後日再開する
+- 再開時は、EC2 → Security Group → SSH → Web サーバ確認の順で最小構成から進める予定
 
-## 成果物（Week2で作成）
-- aws/ec2-build-steps.md
-- aws/security-checklist.md
-- aws/screenshots/
+## 補足
+- 現時点では成果物は未作成
+- 再開後に学習ログ、手順書、スクリーンショットを追加する
