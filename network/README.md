@@ -10,8 +10,7 @@
   `network/notes/ccna-day5-Switching-Part1.md`
 - 最短切り分け手順  
   `network/troubleshooting-network.md`
-- サブネット演習  
-  `network/subnetting-practice.md`
+
 
 ## 現在の公開進捗
 - CCNA 200-301 ベースで学習中
